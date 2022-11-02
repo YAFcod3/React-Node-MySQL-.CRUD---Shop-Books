@@ -21,7 +21,11 @@ const Add = () => {
   })
 
   const handleChange = (e) => {
-    setBook((prev) => ({ ...prev, [e.target.name]: e.target.value })
+    setBook((prev) => (
+      { 
+        ...prev, 
+        [e.target.name]: e.target.value 
+      })
     )
 
   }
