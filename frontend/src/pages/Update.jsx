@@ -1,9 +1,21 @@
+import { useState } from "react"
+import {useLocation, useNavigate} from 'react-router-dom'
+import axios from 'axios'
+
+
+
+
+
 const Update= () => {
 
 
   const navigate = useNavigate()
+  const location=useLocation()
+ // console.log(location)
+ // console.log(location.pathname.split("/")[2])
+  const bookId=location.pathname.split("/")[2]
 
-/*
+
   const [book, setBook] = useState({
     title: "",
     desc: "",
@@ -27,7 +39,7 @@ const Update= () => {
     e.preventDefault()
 
     try {
-      await axios.post("http://localhost:8800/books", book)
+      await axios.put("http://localhost:8800/book/"+bookId,  book)
       navigate('/')
     } catch (error) {
       console.log(error)
@@ -44,11 +56,14 @@ const Update= () => {
       <input type="number" placeholder="price" onChange={handleChange} name="price" />
       <input type="text" placeholder="cover" onChange={handleChange} name="cover" />
 
-      <button onClick={handleClick}>Add</button>
+      <button className="formButton" onClick={handleClick}>Update</button>
     </div>
 
 
   );
+
+
+
+
 }
- */
 export default Update;
